@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/apple-icon.png">
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Diagnosis-Page
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/static/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+    <link href="/static/style.css" rel="stylesheet" />
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/sidebar-1.jpg">
+      
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+                  <li class="nav-item ">
+                      <a class="nav-link" href="UserHome">
+                          <i class="material-icons">dashboard</i>
+                          <p>Home Page</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="UserProfile">
+                          <i class="material-icons">person</i>
+                          <p>Your Profile</p>
+                      </a>
+                  </li>
+                  <li class="nav-item active">
+                      <a class="nav-link" href="Symptoms">
+                          <i class="material-icons">integration_instructions</i>
+                          <p>Diagnosis</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="BookAppointment">
+                          <i class="material-icons">book_online</i>
+                          <p>Appointment</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="BookedAppointments">
+                        <i class="material-icons">book_online</i>
+                        <p>Booked Appointments</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="Prescriptions">
+                        <i class="material-icons">book_online</i>
+                        <p>Prescriptions</p>
+                    </a>
+                </li>
+                  
+                  <li class="nav-item ">
+                    <a class="nav-link " href="NearbyHospitals">
+                        <i class="material-icons">local_hospital</i>
+                        <p>Nearby Hospitals</p>
+                    </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="/logout">
+                          <i class="material-icons">logout</i>
+                          <p>Logout</p>
+                      </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav id="header" class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="UserHome">Cure-o-city</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card card-chart">
+                                <div class="card-header card-header-danger">
+                                    <h4  class="card-title" >Diagnosis</h4>
+                                    <p class="card-category">Diagnosis made on the basis of your symptoms</p>
+                                    <div class="ct-chart" id="completedTasksChart"></div>
+                                </div>
+                                <div class="card-body">
+                                   
+                                    
+                                    
+                                    
+                                </div>
+                                <table class="table table-hover">
+                                    <thead class="text-warning">
+                                        <th style="color: #00acc1;">Disease</th>
+                                        <th style="color: #00acc1;">Probability</th>
+                                        
+                                    </thead>
+                                    <tbody>
+                                        {% for i,j in details %}
+                                        
+                                        <tr>
+                                            <td >{{ j }}</td>
+                                            <td >{{ i }}</td>                                
+                                            
+                                            
+                                
+                                        </tr>
+                                       
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="card-footer">
+                                    <!-- <div class="stats">
+                                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+   
+    <!--   Core JS Files   -->
+    <!--   Core JS Files   -->
+  <script src="/static/jquery.min.js"></script>
+  <script src="/static/popper.min.js"></script>
+  <script src="/static/bootstrap-material-design.min.js"></script>
+  <script src="/static/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Plugin for the momentJs  -->
+  <script src="/static/moment.min.js"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="/static/sweetalert2.js"></script>
+  <!-- Forms Validations Plugin -->
+  <script src="/static/jquery.validate.min.js"></script>
+  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+  <script src="./static/jquery.bootstrap-wizard.js"></script>
+  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <script src="/static/bootstrap-selectpicker.js"></script>
+  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+  <script src="/static/bootstrap-datetimepicker.min.js"></script>
+  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+  <script src="/static/jquery.dataTables.min.js"></script>
+  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+  <script src="/static/bootstrap-tagsinput.js"></script>
+  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+  <script src="/static/jasny-bootstrap.min.js"></script>
+  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+  <script src="/static/fullcalendar.min.js"></script>
+  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+  <script src="/static/jquery-jvectormap.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="/static/nouislider.min.js"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="/static/arrive.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="/static/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="/static/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/static/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="/static/demo.js"></script>
+</body>
+
+</html>

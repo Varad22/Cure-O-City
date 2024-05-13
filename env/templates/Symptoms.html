@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/apple-icon.png">
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Check-Symptoms-Page
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/static/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+    <link href="/static/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+    <link href="/static/style.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/sidebar-1.jpg">
+      
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+                  <li class="nav-item ">
+                      <a class="nav-link" href="UserHome">
+                          <i class="material-icons">dashboard</i>
+                          <p>Home Page</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="UserProfile">
+                          <i class="material-icons">person</i>
+                          <p>Your Profile</p>
+                      </a>
+                  </li>
+                  <li class="nav-item active">
+                      <a class="nav-link" href="Symptoms">
+                          <i class="material-icons">integration_instructions</i>
+                          <p>Diagnosis</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="BookAppointment">
+                          <i class="material-icons">book_online</i>
+                          <p>Appointment</p>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="BookedAppointments">
+                        <i class="material-icons">book_online</i>
+                        <p>Booked Appointments</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="Prescriptions">
+                        <i class="material-icons">book_online</i>
+                        <p>Prescriptions</p>
+                    </a>
+                </li>
+                  
+                  <li class="nav-item ">
+                    <a class="nav-link " href="NearbyHospitals">
+                        <i class="material-icons">local_hospital</i>
+                        <p>Nearby Hospitals</p>
+                    </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="/logout">
+                          <i class="material-icons">logout</i>
+                          <p>Logout</p>
+                      </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav id="header" class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="UserHome">Cure-o-city</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Symptoms</h4>
+                                    <p class="card-category">Select symptoms you are having right now</p>
+                                </div>
+
+
+                                <div class="card-body">
+                                    <form method="POST">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="profile">
+                                                <!-- Symptom input -->
+                                                <div class="row">
+                                                   
+                                                        <div class="row" style="margin-left: 20px;">
+                                                            <div class="col-lg-12">
+                                                                <div id="inputFormRow">
+                                                                    <div class="input-group mb-3">
+                                                                        <!-- Dropdown Code  Starts here-->
+                                                                        
+                                                                        <datalist name="sym" id="suggestions">
+                                                                            {% for i in var %}
+                                                                            <option name="sym" value="{{i}}">{{i}}</option>
+                                                                            {% endfor %}
+                                                                           
+                                                                        </datalist>
+                                                                        
+                                                                        <input name="sym" placeholder="Add your symptoms"  autocomplete="off" class="btn my-1 me-1" list="suggestions">
+
+                                                                        <datalist  id="suggestions">
+                                                                            {% for i in var %}
+                                                                            <option  value="{{i}}">{{i}}</option>
+                                                                            {% endfor %}
+                                                                           
+                                                                        </datalist>
+                                                                        
+                                                                        <input name="sym2" placeholder="Add your symptoms"   autocomplete="off" class="btn my-1 me-1" list="suggestions">
+
+                                                                        <datalist name="sym" id="suggestions">
+                                                                            {% for i in var %}
+                                                                            <option name="sym" value="{{i}}">{{i}}</option>
+                                                                            {% endfor %}
+                                                                           
+                                                                        </datalist>
+                                                                        
+                                                                        <input name="sym3" placeholder="Add your symptoms"  autocomplete="off" class="btn my-1 me-1" list="suggestions">
+
+                                                                        <datalist  id="suggestions">
+                                                                            {% for i in var %}
+                                                                            <option  value="{{i}}">{{i}}</option>
+                                                                            {% endfor %}
+                                                                           
+                                                                        </datalist>
+                                                                        
+                                                                        <input name="sym4" placeholder="Add your symptoms"  autocomplete="off" class="btn my-1 me-1" list="suggestions">
+
+                                                                        <datalist  id="suggestions">
+                                                                            {% for i in var %}
+                                                                            <option  value="{{i}}">{{i}}</option>
+                                                                            {% endfor %}
+                                                                           
+                                                                        </datalist>
+                                                                        
+                                                                        <input name="sym5" placeholder="Add your symptoms"  autocomplete="off" class="btn my-1 me-1" list="suggestions">
+
+                                                                        <datalist  id="suggestions">
+                                                                            {% for i in var %}
+                                                                            <option  value="{{i}}">{{i}}</option>
+                                                                            {% endfor %}
+                                                                           
+                                                                        </datalist>
+                                                                        
+                                                                        <input name="sym6" placeholder="Add your symptoms"  autocomplete="off" class="btn my-1 me-1" list="suggestions">
+                                                                        
+
+                                                                        <!-- <input  type="text"
+                                                                            name="title[]" class="form-control m-input"
+                                                                            placeholder="Enter Symptoms"
+                                                                            autocomplete="off"> -->
+                                                                        <!-- Dropdown Code  Ends here-->
+
+                                                                        <div class="input-group-append">
+
+                                                                            <a href="#" id="removeRow">
+                                                                                <i class="material-icons">remove</i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div id="newRow"></div>
+                                                                <p >
+                                                                    Add More Symptoms
+                                                                    <a href="#" id="addRow" style="margin-left: 30px;">
+                                                                        <i class="material-icons">add</i>
+                                                                    </a>
+                                                                </p>
+
+                                                            </div>
+                                                        </div>
+                                                   
+
+                                                </div>
+
+                                            </div>
+                                            <input type="submit" class="btn btn-primary pull-right" value="Confirm" style="color: white;">
+                                            <!-- <button type="submit" class="btn btn-primary pull-right"><a
+                                                    style="color: white;" href="Diagnosis">Confirm</a></button> -->
+                                            <div class="clearfix"></div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </footer>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // add row
+        $("#addRow").click(function () {
+            var html = '';
+            html += '<div id="inputFormRow" >';
+            html += '<div class="input-group mb-3">';
+            html += '<datalist id="suggestions"><option>abs</option><option>a,jsxuhk</option></datalist><input placeholder="Add your symptoms" name="symptom"  autocomplete="off" class="btn my-1 me-1" list="suggestions">';
+            html += '<div class="input-group-append">';
+            html += '<a href="#" id="removeRow"><i class="material-icons">remove</i></a>';
+            html += '</div>';
+            html += '</div>';
+
+            $('#newRow').append(html);
+        });
+
+        // remove row
+        $(document).on('click', '#removeRow', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+
+        
+    </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#car_brand").selectpicker();
+
+        $("#car_models").selectpicker();
+
+        function load_data(type, category_id) {
+            $.ajax({
+                url: "/carbrand",
+                method: "POST",
+                data: { type: type, category_id: category_id },
+                dataType: "json",
+                success: function (data) { //alert(category_id)
+                    var html = "";
+                    for (var count = 0; count < data.length; count++) {
+                        html += '<option value="' + data[count].id + '">' + data[count].name + "</option>";
+                    }
+                    if (type == "carData") {
+                        $("#car_brand").html(html);
+                        $("#car_brand").selectpicker("refresh");
+                    } else {
+                        $("#car_models").html(html);
+                        $("#car_models").selectpicker("refresh");
+                    }
+                },
+            });
+        }
+
+        $(document).on("change", "#car_brand", function () {
+            var category_id = $("#car_brand").val();
+            load_data("carModeldata", category_id);
+        });
+    });
+</script>
+  
+    <!--   Core JS Files   -->
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/popper.min.js"></script>
+    <script src="/static/bootstrap-material-design.min.js"></script>
+    <script src="/static/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Plugin for the momentJs  -->
+    <script src="/static/moment.min.js"></script>
+    <!--  Plugin for Sweet Alert -->
+    <script src="/static/sweetalert2.js"></script>
+    <!-- Forms Validations Plugin -->
+    <script src="/static/jquery.validate.min.js"></script>
+
+    <script src="/static/jquery.bootstrap-wizard.js"></script>
+
+    <script src="/static/bootstrap-selectpicker.js"></script>
+
+    <script src="/static/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="/static/jquery.dataTables.min.js"></script>
+
+    <script src="/static/bootstrap-tagsinput.js"></script>
+
+    <script src="/static/jasny-bootstrap.min.js"></script>
+
+    <script src="/static/fullcalendar.min.js"></script>
+
+    <script src="/static/nouislider.min.js"></script>
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="/static/arrive.min.js"></script>
+
+    <!-- Chartist JS -->
+    <script src="/static/chartist.min.js"></script>
+
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/static/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+
+</body>
+
+</html>
